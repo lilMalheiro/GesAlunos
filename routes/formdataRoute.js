@@ -2,7 +2,7 @@ const express= require('express')
 const formdataRoute= express.Router()
 const connect = require('../dbconnect')
 
-formdataRoute.get('/',()=>{
+formdataRoute.get('/',(req,res)=>{
     connection.query('SELECT * FROM tipos',(err,result)=>
     {
     if(err){

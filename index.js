@@ -9,7 +9,7 @@ app.use('/navbar',require('./routes/navbarRoute'))
 app.use('/formdata',require('./routes/formdataRoute'))
  
 app.get('/', function (req, res) {//vai buscar o objecto app e faz a proposta e responde 
-  res.sendFile(path.join(__dirname,'/public/index.HTML'))
+  res.sendFile(path.join(__dirname,'/public/index.html'))
 })
 
 /*app.get('/:nome', function (req, res) {

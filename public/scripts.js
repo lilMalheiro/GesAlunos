@@ -1,6 +1,6 @@
 function init(){
-getNavbar()
-getTipos()
+    getNavbar()
+    getTipos()
 }
 
 function getNavbar()
@@ -18,10 +18,15 @@ function getNavbar()
 
 
 function getTipos()
-{
+{ const tipos= document.getElementById('tipo')
     fetch('http://localhost:3000/formdata')
-    .then()
-    .then()
+    .then(res => res.json())
+    .then(data=>{
+        for(let i=0; i<data.length; i++){
+            const op =`<option value"${data[i].idtipo}">${data[i].designacao}</option>`
+            tipos.innerHTML +=op
+        }
+    })
     .catch()
 }
 
