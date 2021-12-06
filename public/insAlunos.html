@@ -21,15 +21,15 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/public/insAlunos.html">Inserir Alunos</a>
+                    <a class="nav-link active" aria-current="page" href="/insAlunos.html">Inserir Alunos</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/public/ConsAlunos.html">Consultar Alunos</a>
+                    <a class="nav-link" href="/ConsAlunos.html">Consultar Alunos</a>
                   </li>
                   <li class="nav-item dropdown">
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link"  href="/public/login.html">Login</a>
+                    <a class="nav-link"  href="/login.html">Login</a>
                   </li>
                 </ul>
               </div>
@@ -37,23 +37,90 @@
           </nav>
     </div>
      
+    <div class="container-fluid p-4 text-center"><h1>Dados do aluno</h1>
+    </div>
     <div class="container">
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Nome completo" aria-label="username" aria-describedby="button-addon2">
-      </div>
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Morada" aria-label="Password" aria-describedby="button-addon2">
-      </div>
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="data de nascimento" aria-label="Password" aria-describedby="button-addon2">
-      </div>
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Telemovel" aria-label="Telemovel" aria-describedby="button-addon2">
-      </div>
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="E-Mail" aria-label="E-Mail" aria-describedby="button-addon2">
-      </div>
-      <button type="button" class="btn btn-outline-primary">Inserir</button>
+        <label 
+            for="nome" 
+            class="col-sm-12 col-form-label">Nome completo:</label>
+        <input 
+            class="form-control" 
+            type="text" 
+            id="nome"
+            placeholder="Nome completo...">
+
+        <div class="row">
+            <div class="col-sm-8">
+                <label 
+                for="morada_rua" 
+                class="col-sm-2 col-form-label">Morada:</label>
+                <input 
+                    class="form-control" 
+                    type="text" 
+                    id="morada_rua"
+                    placeholder="Rua...">   
+            </div>
+            <div class="col-sm-4">
+                <label 
+                for="morada_num" 
+                class="col-sm-2 col-form-label">Nº:</label>
+                <input 
+                    class="form-control" 
+                    type="text" 
+                    id="morada_num"
+                    placeholder="Nº...">
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <label 
+                    for="dnasc" 
+                    class="col-sm-2 col-form-label">Data:</label>
+                    <input 
+                        class="form-control" 
+                        type="date" 
+                        id="dnasc"
+                        placeholder="Data de nascimento...">
+                </div>
+                <div class="col-sm-4">
+                    <label 
+                    for="telem" 
+                    class="col-sm-2 col-form-label">Telemóvel:</label>
+                    <input 
+                        class="form-control" 
+                        type="text" 
+                        id="telem"
+                        placeholder="nº telemóvel...">
+                </div>
+                <div class="col-sm-4">
+                    <label 
+                    for="email" 
+                    class="col-sm-2 col-form-label">Email:</label>
+                    <input 
+                        class="form-control" 
+                        type="email" 
+                        id="email"
+                        placeholder="email...">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <label 
+                    for="tipo" 
+                    class="col-sm-2 col-form-label">Tipo:</label>
+                    <select 
+                        class="form-select" 
+                        id="tipo"
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                </div>
+            </div>                 
+        </div>
+        <button type="button" class="btn btn-primary mt-4">Adicionar</button>
     </div>
 
 
