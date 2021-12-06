@@ -11,6 +11,7 @@
     <title>Document</title>
 </head>
 <body>
+  
     <div class="Navbar">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
@@ -111,16 +112,29 @@
                     class="col-sm-2 col-form-label">Tipo:</label>
                     <select 
                         class="form-select" 
-                        id="tipo"
-                        <option selected>Open this select menu</option>
+                        id="tipo" >
+                        <option selected>Escolher um tipo... </option>
+
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
-                      </select>
+                    </select>
+
                 </div>
+                <div class="col-sm-4">
+                  <label 
+                  for="telem" 
+                  class="col-sm-12 col-form-label">Escolher fotografia:</label>
+                  <input 
+                      class="form-control" 
+                      type="file" 
+                      id="telem"
+                      placeholder="fotografia">
+              </div>
             </div>                 
         </div>
         <button type="button" class="btn btn-primary mt-4">Adicionar</button>
+        
     </div>
 
 
