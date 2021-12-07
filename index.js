@@ -1,9 +1,9 @@
-const { prototype } = require('events')
-
-const express = require('express')//const = constante
-const app = express()// instanciar um objecto e classe 
+const express = require('express')
 const path = require('path')
-const connect = require('./dbconnect') 
+const app = express()
+
+
+app.use(express.static('./public'))
 
 app.use('/navbar',require('./routes/navbarRoute'))
 app.use('/formdata',require('./routes/formdataRoute'))
@@ -17,6 +17,7 @@ app.get('/', function (req, res) {//vai buscar o objecto app e faz a proposta e 
  })*/
  
 const port = 3000;
+
 app.listen(port,function(){
   console.log(" Listenning on port: " + port)
 })

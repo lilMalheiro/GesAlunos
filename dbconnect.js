@@ -5,11 +5,11 @@ require('dotenv').config({ path: './private/.env' })
 //const connection = require('./dbconnect.js')
 
 const connection=mysql.createConnection({
-    host:process.env._HOST,
-    user:process.env._USERNAME,
-    password:process.env._PASSWORD,
-    database:process.env._DATABASE,
-    port:process.env._PORT
+    host:  process.env._HOST,
+    user: process.env._USERNAME,
+    password: process.env._PASSWORD,
+    database: process.env._DATABASE,
+    port: process.env._PORT
     })
     connection.connect(function(err){
         if(err){
