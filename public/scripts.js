@@ -3,6 +3,7 @@ const { get } = require("../routes/navbarRoute")
 function init(){
     getNavbar()
     getTipos()
+    
 }
 
 
@@ -44,39 +45,55 @@ if(dnasc=="")
         else
         console.log(dnasc) 
 
-    const nome=document.getElementById('nome').value
+const nome=document.getElementById('nome').value
     if(nome=="")
        alert('Tem de indicar um Nome')
        else
        console.log(nome) 
 
-        const morada_rua=document.getElementById('morada_rua').value
-        if(morada_rua=="")
-           alert('Tem de indicar uma morada.')
-           else
-           console.log(morada_rua) 
+const morada_rua=document.getElementById('morada_rua').value
+    if(morada_rua=="")
+        alert('Tem de indicar uma morada.')
+        else
+        console.log(morada_rua) 
 
-        const morada_num=document.getElementById('morada_num').value
-        if(morada_num=="")
-            alert('Tem de indicar o numero da morada.')
-            else
-            console.log(morada_num) 
+const morada_num=document.getElementById('morada_num').value
+    if(morada_num=="")
+        alert('Tem de indicar o numero da morada.')
+        else
+        console.log(morada_num) 
 
-        const email=document.getElementById('email').value
-        if(email=="")
-            alert('Tem de indicar um mail.')
-            else
-            console.log(email) 
+const email=document.getElementById('email').value
+    if(email=="")
+        alert('Tem de indicar um mail.')
+        else
+        console.log(email) 
      
 
-        const telem=document.getElementById('telem').value
-        if(telem=="")
-            alert('Tem de indicar um numero de telemovel.')
-            else
-            console.log(telem) 
-        }
+const telem=document.getElementById('telem').value
+if(telem=='')
+alert('Tem de indicar um telemóvel.')
+else {
+let i = 0
+for(i; i<telem.length; i++){
+    let c = telem.charAt(i)
+    console.log(c)
+    if(isNaN(c)){
+        console.log('número inválido')
+        break
+    }       
+}
+console.log(i)
+if(i == telem.length){
+    const telemInt = parseInt(telem)
+    console.log(telemInt)
+}
+}
 
-
+const tipo = document.getElementById('tipo').innerHTML
+if(tipo=='')
+    alert('Tem de indicar um tipo')
+}
 
 /*
 function processData(data) {

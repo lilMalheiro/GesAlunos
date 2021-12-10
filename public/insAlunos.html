@@ -16,7 +16,7 @@
      
     <div class="container-fluid p-4 text-center"><h1>Dados do aluno</h1>
     </div>
-    <div class="container">
+    <div class="container" onload='getData()' >
         <label 
             for="nome" 
             class="col-sm-12 col-form-label">Nome completo:</label>
@@ -104,7 +104,7 @@
               </div>
             </div>                 
         </div>
-        <button onclick="Insererir()" id="btndados" type="button" class="btn btn-primary mt-4">Adicionar</button>
+        <button onclick="getData();" id="btndados" type="button" class="btn btn-primary mt-4">Adicionar</button>
         
     </div>
 
