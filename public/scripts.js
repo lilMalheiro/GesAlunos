@@ -1,3 +1,4 @@
+const { response } = require("express")
 const { get } = require("../routes/navbarRoute")
 
 function init(){
@@ -71,28 +72,56 @@ const email=document.getElementById('email').value
      
 
 const telem=document.getElementById('telem').value
-if(telem=='')
-alert('Tem de indicar um telemóvel.')
-else {
-let i = 0
-for(i; i<telem.length; i++){
-    let c = telem.charAt(i)
-    console.log(c)
+    if(telem=='')
+        alert('Tem de indicar um telemóvel.')
+    else {
+        let i = 0
+    for(i; i<telem.length; i++){
+        let c = telem.charAt(i)
+        console.log(c)
     if(isNaN(c)){
         console.log('número inválido')
         break
     }       
 }
-console.log(i)
-if(i == telem.length){
-    const telemInt = parseInt(telem)
-    console.log(telemInt)
+    console.log(i)
+    if(i == telem.length){
+        const telemInt = parseInt(telem)
+        console.log(telemInt)
 }
 }
 
 const tipo = document.getElementById('tipo').innerHTML
-if(tipo=='')
-    alert('Tem de indicar um tipo')
+    if(tipo=='')
+        alert('Tem de indicar um tipo')
+
+        let dadosutilizador={
+            nomeutilizador: nome,
+            moradarua: morada_rua,
+            moradanumero: morada_num,
+            datanascimento: dnasc,
+            telemovel: telem,
+            email:email,
+            idtipo:tipo
+        }
+        //criar um JSON com um objeto
+        let jsonDados= JSON.stringify(dadosutilizador)
+        console.log(jsonDados)
+
+        const options={
+            method:'POST',
+            header: {
+                'Content-type':'application/json'
+            },
+            body: jsonDados
+        }
+
+        fetch('http:/localhost:3000/utilizador',options)
+        .then(res=> res.json)
+        .then(res => alert(response))
+        .catch((err)=>{
+            alert('aconteceu um erro com o pedido')
+        })
 }
 
 /*
