@@ -11,7 +11,8 @@ app.use(express.json({extended: false}))
 
 app.use('/navbar',require('./routes/navbarRoute'))
 app.use('/formdata',require('./routes/formdataRoute'))
-app.use('/getdata',require('./routes/getdataRoute'))
+app.use('/utilizador',require('./routes/inserirutilizadoresRoute'))
+
 
 app.get('/', function (req, res) {//vai buscar o objecto app e faz a proposta e responde 
   res.sendFile(path.join(__dirname,'/public/index.html'))

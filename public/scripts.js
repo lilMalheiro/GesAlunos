@@ -1,5 +1,4 @@
-const { response } = require("express")
-const { get } = require("../routes/navbarRoute")
+
 
 function init(){
     getNavbar()
@@ -29,7 +28,7 @@ function getTipos()
     .then(data=>{
         for(let i=0; i<data.length; i++){
             const op =
-            `<option value"${data[i].idtipo}">${data[i].designacao}</option>`
+            `<option value="${data[i].idtipo}">${data[i].designacao}</option>`
             tipos.innerHTML +=op
         }
     })
@@ -40,73 +39,65 @@ function getTipos()
 
 
 function getData(){
-const bdate=document.getElementById('dnasc').value
-if(dnasc=="")
+    const bdate=document.getElementById('dnasc').value
+    if(dnasc=="") 
         alert('Tem de indicar uma data de nascimento.')
-        else
-        console.log(dnasc) 
 
-const nome=document.getElementById('nome').value
+    const nome=document.getElementById('nome').value
     if(nome=="")
        alert('Tem de indicar um Nome')
-       else
-       console.log(nome) 
 
-const morada_rua=document.getElementById('morada_rua').value
+
+    const morada_rua=document.getElementById('morada_rua').value
     if(morada_rua=="")
         alert('Tem de indicar uma morada.')
-        else
-        console.log(morada_rua) 
 
-const morada_num=document.getElementById('morada_num').value
+
+    const morada_num=document.getElementById('morada_num').value
     if(morada_num=="")
         alert('Tem de indicar o numero da morada.')
-        else
-        console.log(morada_num) 
 
-const email=document.getElementById('email').value
+
+    const email=document.getElementById('email').value
     if(email=="")
         alert('Tem de indicar um mail.')
-        else
-        console.log(email) 
+
      
 
-const telem=document.getElementById('telem').value
+    const telem=document.getElementById('telem').value
     if(telem=='')
         alert('Tem de indicar um telemóvel.')
     else {
         let i = 0
-    for(i; i<telem.length; i++){
-        let c = telem.charAt(i)
-        console.log(c)
-    if(isNaN(c)){
-        console.log('número inválido')
-        break
-    }       
-}
-    console.log(i)
-    if(i == telem.length){
-        const telemInt = parseInt(telem)
-        console.log(telemInt)
-}
-}
+        for(i; i<telem.length; i++){
+            let c = telem.charAt(i)
+            if(isNaN(c)){
+                break
+            }       
+        }   
+        if(i == telem.length){
+            const telemInt = parseInt(telem)
+        }       
+    }
 
-const tipo = document.getElementById('tipo').innerHTML
+    const tipo = document.getElementById('tipo').value
     if(tipo=='')
         alert('Tem de indicar um tipo')
 
-        let dadosutilizador={
+        let dadosutilizador = {
             nomeutilizador: nome,
             moradarua: morada_rua,
             moradanumero: morada_num,
-            datanascimento: dnasc,
+            datanascimento: bdate,
             telemovel: telem,
             email:email,
             idtipo:tipo
         }
         //criar um JSON com um objeto
-        let jsonDados= JSON.stringify(dadosutilizador)
+        let jsonDados  = JSON.stringify(dadosutilizador)
+
         console.log(jsonDados)
+        
 
         const options={
             method:'POST',
@@ -116,43 +107,10 @@ const tipo = document.getElementById('tipo').innerHTML
             body: jsonDados
         }
 
-        fetch('http:/localhost:3000/utilizador',options)
-        .then(res=> res.json)
-        .then(res => alert(response))
+        fetch('http://localhost:3000/utilizador',options)
+        .then(res=> res.json())
+        .then(response => alert(response.text))
         .catch((err)=>{
             alert('aconteceu um erro com o pedido')
         })
 }
-
-/*
-function processData(data) {
-    const linhaCidade = document.getElementById('cidades')
-    linhaCidade.innerHTML=''
-    for(let i=0 ; i < 100; i++){
-        let nome = data[i].Name
-        let distrito = data[i].District
-        let pop = data[i].Population
-        let ID = data[i].ID 
-        linhaCidade.innerHTML += `<tr>
-                                    <td>${nome}</td>
-                                    <td>${distrito}</td>
-                                    <td>${pop}</td>
-                                    <td>
-                                    <button
-                                        onclick="showID(${ID});"
-                                        type="button" 
-                                        class="btn btn-success"
-                                        style="width:100px;"> Editar                                      
-                                    </button>
-                                    <button 
-                                        type="button" 
-                                        class="btn btn-danger"
-                                        style="width:100px;"> Eliminar
-                                    </button>
-                                    </td>
-                                </tr>`
-    }
-}
-function showID(ID){
-    console.log(ID)
-}*/
