@@ -114,3 +114,54 @@ function getData(){
             alert('aconteceu um erro com o pedido')
         })
 }
+function sendImage()
+{
+    const image=document.getElementById('foto').file[0]
+    let imagedata=new FormData()
+    imagedata.append('image:', image)
+    if(image==undefined){
+     alert ('não tem imagem selecionada!')
+    }
+    else{
+    let options ={
+        method: 'POST',
+        headers : {
+         'Accept':'aplication/json'
+        },
+        body:imagedata
+    }
+    fetch('http://localhost:300/utilizador', options)
+    .then(res=>res.json())
+    .then(data=> alert(data.message))
+    .catch((err)=>{
+        alert('ocorreu um erro no pedido')
+    })
+  }
+}
+
+function sendImage(){
+    const image = document.getElementById('foto').files[0]
+    const nomeutilizador = document.getElementById('nome').value
+    let fd = new FormData()
+    fd.append('image',image)
+    fd.append('nomeutilizador',nomeutilizador)
+    if(image == undefined)
+        alert('Não há imagem selecionada!')
+    else{
+        var options = {
+            method:'POST',
+            headers: {
+                'Accept' : 'application/json'
+            },
+            body: fd
+        }
+        fetch('http://localhost:5000/foto',options)
+        .then(res => res.json())
+        .then(data => alert(data.res))
+        .catch((err) => {
+            console.log('Request failed', err.message)
+        });
+
+    
+    }
+}
